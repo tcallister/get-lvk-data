@@ -5,6 +5,7 @@ import astropy.cosmology as cosmo
 import astropy.units as u
 from astropy.cosmology import Planck15
 import sys
+import pickle
 
 sys.path.append('/Users/tcallister/Documents/Repositories/effective-spin-priors/')
 from priors import chi_effective_prior_from_isotropic_spins
@@ -112,8 +113,8 @@ def genInjectionFile(ifar_threshold,snr_threshold,filename):
         if key!='nTrials':
             injectionDict[key] = injectionDict[key].tolist()
 
-    with open(filename,"w") as f:
-        json.dump(injectionDict,f)
+    with open(filename,'wb') as f:
+        pickle.dump(injectionDict,f,protocol=2)
 
 if __name__=="__main__":
 
