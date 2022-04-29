@@ -78,7 +78,7 @@ def genInjectionFile(ifar_threshold,snr_threshold,filename):
         p_draw_xeff_xp[i] = joint_prior_from_isotropic_spins(q_det[i],1.,Xeff_det[i],Xp_det[i],ndraws=10000)
 
     # Draw probabilities for component spin magnitudes and tilts
-    p_draw_a1a2cost1cost2 = (1./(4.*np.pi))**2*(1./0.998)**2*np.ones(a1_det.size)
+    p_draw_a1a2cost1cost2 = (1./2.)**2*(1./0.998)**2*np.ones(a1_det.size)
 
     # Combine
     pop_reweight = 1./(p_draw_m1m2z*p_draw_xeff_xp)
@@ -108,10 +108,6 @@ def genInjectionFile(ifar_threshold,snr_threshold,filename):
             'p_draw_a1a2cost1cost2':p_draw_a1a2cost1cost2,
             'nTrials':nTrials
             }
-
-    for key in injectionDict.keys():
-        if key!='nTrials':
-            injectionDict[key] = injectionDict[key].tolist()
 
     with open(filename,'wb') as f:
         pickle.dump(injectionDict,f,protocol=2)
