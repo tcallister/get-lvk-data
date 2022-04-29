@@ -1,4 +1,6 @@
-# get-lvk-data
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6505410.svg)](https://doi.org/10.5281/zenodo.6505410)
+
+# get-lvk-data 
 
 This repo contains some tools and scripts for downloading and prepping O1, O2, and O3 parameter estimation data for population inference.
 To start, make sure [conda](https://docs.conda.io/en/latest/miniconda.html) is installed, then create a python environment via
